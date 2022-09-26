@@ -10,19 +10,21 @@
 [Marcos V. Conde](https://scholar.google.com/citations?user=NtB1kjYAAAAJ&hl=en), [Ui-Jin Choi](https://scholar.google.com/citations?user=MMF5LCoAAAAJ&hl=en), [Maxime Burchi](https://scholar.google.com/citations?user=7S_l2eAAAAAJ&hl=en), [Radu Timofte](https://scholar.google.com/citations?user=u3MwH5kAAAAJ&hl=en)
 
 
-Computer Vision Lab, CAIDAS, University of Würzburg
+[Computer Vision Lab, CAIDAS, University of Würzburg](https://www.informatik.uni-wuerzburg.de/computervision/home/)
 
 MegaStudyEdu, South Korea
 
+**We are looking for collaborators!  Collaborator를 찾고 있습니다!** 🇬🇧 🇪🇸 🇰🇷 🇫🇷 🇷🇴 🇩🇪 🇨🇳
+
 ------------------
 
-**News 🚀**
+**News 🚀🚀**
 
 - [09/2022] Ongoing website and multiple demos creation. Feel free to contact us. Paper will be presented at AIM, ECCV 2022.
 
 ------------------
 
-This is the official repository and PyTorch implementation of Swin2SR. We provide the supplementary material, code, pretrained models and demos. Swin2SR represents a possible improvement of the famous [SwinIR](https://github.com/JingyunLiang/SwinIR/) by [Jingyun Liang](https://jingyunliang.github.io/) achieves state-of-the-art performance in
+This is the official repository and PyTorch implementation of Swin2SR. We provide the supplementary material, code, pretrained models and demos. Swin2SR represents a possible improvement of the famous [SwinIR](https://github.com/JingyunLiang/SwinIR/) by [Jingyun Liang](https://jingyunliang.github.io/) (kudos for such an amazing contribution ✋). Our model achieves state-of-the-art performance in:
 
 - classical, lighweight and real-world image super-resolution (SR)
 - color JPEG compression artifact reduction
@@ -62,12 +64,26 @@ In this paper, we explore the novel Swin Transformer V2, to improve SwinIR for i
 
 ## Results
 
+We achieved state-of-the-art performance on classical, lightweight and real-world image Super-Resolution (SR), JPEG compression artifact reduction, and compressed input super-resolution. We use mainly the DIV2K Dataset and Flickr2K datasets for training, and for testing:  RealSRSet, 5images/Classic5/Set5, Set14, BSD100, Urban100 and Manga109  
+
+🌎 **[All visual results of SwinIR can be downloaded here]()**. We also provide links to download the original datasets.
+More details in our [paper](https://arxiv.org/abs/2209.11345).
+
+<br>
+
+
 |Compressed inputs | Swin2SR output|
 |       :---       |     :---:     |
 | <img src="media/frog_0.png" alt="frog_in" width="250" border="0"> | <img src="media/frog_1.png" alt="frog_swin2sr" width="250" border="0"> |
 | <img src="media/comic3_0.png" alt="comic_in" width="250" border="0"> | <img src="media/comic3_1.png" alt="comic_swin2sr" width="250" border="0"> |
 | <img src="media/0814_0.png" alt="div2k_in" width="250" border="0"> | <img src="media/0814_1.png" alt="div2k_swin2sr" width="250" border="0"> |
 | <img src="media/buildings_0.png" alt="buildings_in" width="250" border="0"> | <img src="media/buildings_1.png" alt="buildings_swin2sr" width="250" border="0"> |
+
+<br>
+
+The **original evaluation datasets** can be downloaded from the following [Kaggle Dataset]()
+
+🌎 **[All the qualitative samples can be downloaded here]()**
 
 
 ------
@@ -95,6 +111,8 @@ In this paper, we explore the novel Swin Transformer V2, to improve SwinIR for i
   year={2022}
 }
 ```
+
+This project is released under the Apache 2.0 license. The codes are heavily based on [Swin Transformer](https://github.com/microsoft/Swin-Transformer) and [Swin Transformer](https://github.com/microsoft/Swin-Transformer) by [Ze Liu](https://scholar.google.com/citations?hl=en&user=9DbprTIAAAAJ). We also refer to codes in [KAIR](https://github.com/cszn/KAIR), [BasicSR](https://github.com/xinntao/BasicSR) and [SwinIR](https://github.com/JingyunLiang/SwinIR/). Please also follow their licenses. Thanks for their awesome works.
 
 
 ## Contact
