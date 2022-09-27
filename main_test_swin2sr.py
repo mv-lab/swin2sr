@@ -18,7 +18,7 @@ def main():
     parser.add_argument('--scale', type=int, default=1, help='scale factor: 1, 2, 3, 4, 8') # 1 for dn and jpeg car
     parser.add_argument('--noise', type=int, default=15, help='noise level: 15, 25, 50')
     parser.add_argument('--jpeg', type=int, default=40, help='scale factor: 10, 20, 30, 40')
-    parser.add_argument('--training_patch_size', type=int, default=128, help='patch size used in training SwinIR. '
+    parser.add_argument('--training_patch_size', type=int, default=128, help='patch size used in training Swin2SR. '
                                        'Just used to differentiate two different settings in Table 2 of the paper. '
                                        'Images are NOT tested patch by patch.')
     parser.add_argument('--large_model', action='store_true', help='use large model, only provided for real image sr')
@@ -181,14 +181,14 @@ def define_model(args):
 def setup(args):
     # 001 classical image sr/ 002 lightweight image sr
     if args.task in ['classical_sr', 'lightweight_sr']:
-        save_dir = f'results/swinir_{args.task}_x{args.scale}'
+        save_dir = f'results/swin2sr_{args.task}_x{args.scale}'
         folder = args.folder_gt
         border = args.scale
         window_size = 8
 
     # 003 real-world image sr
     elif args.task in ['real_sr']:
-        save_dir = f'results/swinir_{args.task}_x{args.scale}'
+        save_dir = f'results/swin2sr_{args.task}_x{args.scale}'
         if args.large_model:
             save_dir += '_large'
         folder = args.folder_lq
@@ -197,7 +197,7 @@ def setup(args):
 
     # 006 JPEG compression artifact reduction
     elif args.task in ['jpeg_car', 'color_jpeg_car']:
-        save_dir = f'results/swinir_{args.task}_jpeg{args.jpeg}'
+        save_dir = f'results/swin2sr_{args.task}_jpeg{args.jpeg}'
         folder = args.folder_gt
         border = 0
         window_size = 7
