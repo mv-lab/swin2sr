@@ -23,7 +23,7 @@ def main():
                                        'Images are NOT tested patch by patch.')
     parser.add_argument('--large_model', action='store_true', help='use large model, only provided for real image sr')
     parser.add_argument('--model_path', type=str,
-                        default='model_zoo/swin2sr/001_classicalSR_DIV2K_s48w8_SwinIR-M_x2.pth')
+                        default='model_zoo/swin2sr/Swin2SR_ClassicalSR_X2_64.pth')
     parser.add_argument('--folder_lq', type=str, default=None, help='input low-quality test image folder')
     parser.add_argument('--folder_gt', type=str, default=None, help='input ground-truth test image folder')
     parser.add_argument('--tile', type=int, default=None, help='Tile size, None for no tile during testing (testing as a whole)')
@@ -33,12 +33,10 @@ def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     # set up model
     if os.path.exists(args.model_path):
-        print(f'loading model from {args.model_path}')
-        
-    ############################################### need to modify ###############################################
+        print(f'loading model from {args.model_path}')        
     else:
         os.makedirs(os.path.dirname(args.model_path), exist_ok=True)
-        url = 'https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/{}'.format(os.path.basename(args.model_path))
+        url = 'https://github.com/mv-lab/swin2sr/releases/download/v0.0.1/{}'.format(os.path.basename(args.model_path))
         r = requests.get(url, allow_redirects=True)
         print(f'downloading model {args.model_path}')
         open(args.model_path, 'wb').write(r.content)
