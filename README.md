@@ -45,6 +45,7 @@ In this paper, we explore the novel Swin Transformer V2, to improve SwinIR for i
 1. [Training](#training)
 1. [Testing](#testing)
 1. [Results](#results)
+1. [Demos](#demos)
 1. [Citation and Acknowledgement](#citation-and-acknowledgement)
 1. [Contact](#contact)
 
@@ -52,13 +53,31 @@ In this paper, we explore the novel Swin Transformer V2, to improve SwinIR for i
 
 ## Training
 
+The training code is at [KAIR](https://github.com/cszn/KAIR/). We follow the same training setup as [SwinIR](https://github.com/JingyunLiang/SwinIR/) by [Jingyun Liang](https://jingyunliang.github.io/). We are working on KAIR integration 👀
+More details about the training setup in our [paper](https://arxiv.org/abs/2209.11345).
 
-### Kaggle Starter guide and code 🔥
-
+Please check our **[demos](#demos)** 🚀
 
 ------
 
 ## Testing
+
+The **original evaluation datasets** can be downloaded from the following [Kaggle Dataset](https://www.kaggle.com/datasets/jesucristo/super-resolution-benchmarks)
+
+<img src="media/kaggle-dataset.png" alt="sr-benchmarks" width="800" border="0"> 
+
+**Classical image super-resolution (SR)**
+Set5 + Set14 + BSD100 + Urban100 + Manga109 - [download here](https://drive.google.com/drive/folders/1B3DJGQKB6eNdwuQIhdskA64qUuVKLZ9u)
+
+**real-world image SR**
+RealSRSet and 5images- [download here](https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/RealSRSet+5images.zip)
+
+**grayscale/color JPEG compression artifact reduction**
+Classic5 +LIVE1 - [download here](https://github.com/cszn/DnCNN/tree/master/testsets)
+
+We follow the same evaluation setup as [SwinIR](https://github.com/JingyunLiang/SwinIR/) by [Jingyun Liang](https://jingyunliang.github.io/) 
+
+<br>
 
 ### ClassicalSR 
 ```
@@ -96,23 +115,31 @@ More details in our [paper](https://arxiv.org/abs/2209.11345).
 
 <br>
 
-The **original evaluation datasets** can be downloaded from the following [Kaggle Dataset]()
-
 🌎 **[All the qualitative samples can be downloaded here]()**
 
+
+------
+
+## Demos
+
+🔥 🚀 ✅ **[Kaggle kernel demo](https://www.kaggle.com/code/jinssaa/swin2sr-dev/) ready to run!** easy to follow includes testing for multiple SR applications.
+
+<img src="media/kaggle-demo.png " alt="kaggle demo" width="800" border="0">
+
+We are working on more interactive demos 👀
 
 ------
 
 
 ## Related Work
 
-[SwinIR: Image Restoration Using Swin Transformer](https://arxiv.org/abs/2108.10257) by Liang et al, ICCVW 2021.
+**[SwinIR: Image Restoration Using Swin Transformer](https://arxiv.org/abs/2108.10257) by Liang et al, ICCVW 2021.**
 
 [Swin Transformer V2: Scaling Up Capacity and Resolution](https://arxiv.org/abs/2111.09883) by Liu et al, CVPR 2022.
 
 [AIM 2022 Challenge on Super-Resolution of Compressed Image and Video](https://arxiv.org/abs/2208.11184) organized by Ren Yang.
 
-[AISP: AI Image Signal Processing](https://github.com/mv-lab/AISP) by Marcos Conde and collaborators, 2022.
+**[AISP: AI Image Signal Processing](https://github.com/mv-lab/AISP) by Marcos Conde, Radu Timofte and collaborators, 2022.**
 
 -----------------
 
@@ -125,9 +152,16 @@ The **original evaluation datasets** can be downloaded from the following [Kaggl
   booktitle={Proceedings of the European Conference on Computer Vision (ECCV) Workshops},
   year={2022}
 }
+
+@article{liang2021swinir,
+  title={SwinIR: Image Restoration Using Swin Transformer},
+  author={Liang, Jingyun and Cao, Jiezhang and Sun, Guolei and Zhang, Kai and Van Gool, Luc and Timofte, Radu},
+  journal={arXiv preprint arXiv:2108.10257},
+  year={2021}
+}
 ```
 
-This project is released under the Apache 2.0 license. The codes are heavily based on [Swin Transformer](https://github.com/microsoft/Swin-Transformer) and [Swin Transformer](https://github.com/microsoft/Swin-Transformer) by [Ze Liu](https://scholar.google.com/citations?hl=en&user=9DbprTIAAAAJ). We also refer to codes in [KAIR](https://github.com/cszn/KAIR), [BasicSR](https://github.com/xinntao/BasicSR) and [SwinIR](https://github.com/JingyunLiang/SwinIR/). Please also follow their licenses. Thanks for their awesome works.
+This project is released under the Apache 2.0 license. The codes are heavily based on [Swin Transformer](https://github.com/microsoft/Swin-Transformer) and [SwinV2 Transformer](https://github.com/microsoft/Swin-Transformer) by [Ze Liu](https://scholar.google.com/citations?hl=en&user=9DbprTIAAAAJ). We also refer to codes in [KAIR](https://github.com/cszn/KAIR), [BasicSR](https://github.com/xinntao/BasicSR) and [SwinIR](https://github.com/JingyunLiang/SwinIR/). Please also follow their licenses. Thanks for their awesome works.
 
 
 ## Contact
