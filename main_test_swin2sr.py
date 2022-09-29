@@ -191,7 +191,7 @@ def define_model(args):
 def setup(args):
     # 001 classical image sr/ 002 lightweight image sr
     if args.task in ['classical_sr', 'lightweight_sr', 'compressed_sr']:
-        save_dir = f'results/swinir_{args.task}_x{args.scale}'
+        save_dir = f'results/swin2sr_{args.task}_x{args.scale}'
         folder = args.folder_gt
         border = args.scale
         window_size = 8
