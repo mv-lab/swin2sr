@@ -97,8 +97,17 @@ python main_test_swin2sr.py --task real_sr --scale 4 --model_path model_zoo/swin
 
 ### CompressedSR
 ```
-! python main_test_swin2sr.py --task compressed_sr --scale 4 --training_patch_size 48 --model_path model_zoo/swin2sr/Swin2SR_CompressedSR_X4_48.pth --folder_gt path/to/DIV2K_Valid_HR --folder_lq /path/to/DIV2K_Valid_LR/Compressed_X4
+python main_test_swin2sr.py --task compressed_sr --scale 4 --training_patch_size 48 --model_path model_zoo/swin2sr/Swin2SR_CompressedSR_X4_48.pth --folder_gt path/to/DIV2K_Valid_HR --folder_lq /path/to/DIV2K_Valid_LR/Compressed_X4
 ```
+
+### JPEG Compression Artifact Reduction, Dynamic, GrayScale
+```
+python main_test_swin2sr.py --task jpeg_car --jpeg 10 --model_path model_zoo/swin2sr/Swin2SR_Jpeg_dynamic.pth --folder_gt /path/to/classic5
+python main_test_swin2sr.py --task jpeg_car --jpeg 20 --model_path model_zoo/swin2sr/Swin2SR_Jpeg_dynamic.pth --folder_gt /path/to/classic5
+python main_test_swin2sr.py --task jpeg_car --jpeg 30 --model_path model_zoo/swin2sr/Swin2SR_Jpeg_dynamic.pth --folder_gt /path/to/classic5
+python main_test_swin2sr.py --task jpeg_car --jpeg 40 --model_path model_zoo/swin2sr/Swin2SR_Jpeg_dynamic.pth --folder_gt /path/to/classic5
+```
+
 ------
 
 ## Results
