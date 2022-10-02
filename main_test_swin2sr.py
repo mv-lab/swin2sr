@@ -28,6 +28,7 @@ def main():
     parser.add_argument('--folder_gt', type=str, default=None, help='input ground-truth test image folder')
     parser.add_argument('--tile', type=int, default=None, help='Tile size, None for no tile during testing (testing as a whole)')
     parser.add_argument('--tile_overlap', type=int, default=32, help='Overlapping of different tiles')
+    parser.add_argument('--save_img_only', default=False, action='store_true', help='save image and do not evaluate')
     args = parser.parse_args()
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -85,6 +86,7 @@ def main():
         output = (output * 255.0).round().astype(np.uint8)  # float32 to uint8
         cv2.imwrite(f'{save_dir}/{imgname}_Swin2SR.png', output)
 
+            
         # evaluate psnr/ssim/psnr_b
         if img_gt is not None:
             img_gt = (img_gt * 255.0).round().astype(np.uint8)  # float32 to uint8
@@ -139,7 +141,7 @@ def define_model(args):
 
     # 002 lightweight image sr
     # use 'pixelshuffledirect' to save parameters
-    elif args.task == 'lightweight_sr':
+    elif args.task in ['lightweight_sr']:
         model = net(upscale=args.scale, in_chans=3, img_size=64, window_size=8,
                     img_range=1., depths=[6, 6, 6, 6], embed_dim=60, num_heads=[6, 6, 6, 6],
                     mlp_ratio=2, upsampler='pixelshuffledirect', resi_connection='1conv')
@@ -192,7 +194,10 @@ def setup(args):
     # 001 classical image sr/ 002 lightweight image sr
     if args.task in ['classical_sr', 'lightweight_sr', 'compressed_sr']:
         save_dir = f'results/swin2sr_{args.task}_x{args.scale}'
-        folder = args.folder_gt
+        if args.save_img_only:
+            folder = args.folder_lq
+        else:
+            folder = args.folder_gt
         border = args.scale
         window_size = 8
 
@@ -220,17 +225,25 @@ def get_image_pair(args, path):
 
     # 001 classical image sr/ 002 lightweight image sr (load lq-gt image pairs)
     if args.task in ['classical_sr', 'lightweight_sr']:
-        img_gt = cv2.imread(path, cv2.IMREAD_COLOR).astype(np.float32) / 255.
-        img_lq = cv2.imread(f'{args.folder_lq}/{imgname}x{args.scale}{imgext}', cv2.IMREAD_COLOR).astype(
-            np.float32) / 255.
+        if args.save_img_only:
+            img_gt = None
+            img_lq = cv2.imread(path, cv2.IMREAD_COLOR).astype(np.float32) / 255.            
+        else:
+            img_gt = cv2.imread(path, cv2.IMREAD_COLOR).astype(np.float32) / 255.
+            img_lq = cv2.imread(f'{args.folder_lq}/{imgname}x{args.scale}{imgext}', cv2.IMREAD_COLOR).astype(
+                np.float32) / 255.            
         
     elif args.task in ['compressed_sr']:
-        img_gt = cv2.imread(path, cv2.IMREAD_COLOR).astype(np.float32) / 255.
-        img_lq = cv2.imread(f'{args.folder_lq}/{imgname}.jpg', cv2.IMREAD_COLOR).astype(
-            np.float32) / 255.        
+        if args.save_img_only:
+            img_gt = None
+            img_lq = cv2.imread(path, cv2.IMREAD_COLOR).astype(np.float32) / 255.            
+        else:
+            img_gt = cv2.imread(path, cv2.IMREAD_COLOR).astype(np.float32) / 255.
+            img_lq = cv2.imread(f'{args.folder_lq}/{imgname}.jpg', cv2.IMREAD_COLOR).astype(
+                np.float32) / 255.        
 
     # 003 real-world image sr (load lq image only)
-    elif args.task in ['real_sr']:
+    elif args.task in ['real_sr', 'lightweight_sr_infer']:
         img_gt = None
         img_lq = cv2.imread(path, cv2.IMREAD_COLOR).astype(np.float32) / 255.
 
