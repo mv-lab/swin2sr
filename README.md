@@ -31,21 +31,21 @@ This is the official repository and PyTorch implementation of Swin2SR. We provid
 - compressed input super-resolution: top solution at the "[AIM 2022 Challenge on Super-Resolution of Compressed Image and Video](https://codalab.lisn.upsaclay.fr/competitions/5076)"
 
 
-> Compression plays an important role on the efficient transmission and storage of images and videos through band-limited systems such as streaming services, virtual reality or videogames. However, compression unavoidably leads to artifacts and the loss of the original information, which may severely degrade the visual quality. For these reasons, quality enhancement of compressed images has become a popular research topic. While most state-of-the-art image restoration methods are based on convolutional neural networks, other transformers-based methods such as SwinIR, show impressive performance on these tasks.
-In this paper, we explore the novel Swin Transformer V2, to improve SwinIR for image super-resolution, and in particular, the compressed input scenario. Using this method we can tackle the major issues in training transformer vision models, such as training instability, resolution gaps between pre-training and fine-tuning, and hunger on data. We conduct experiments on three representative tasks: JPEG compression artifacts removal, image super-resolution (classical and lightweight), and compressed image super-resolution. Experimental results demonstrate that our method, Swin2SR, can improve the training convergence and performance of SwinIR, and is a top-5 solution at the "AIM 2022 Challenge on Super-Resolution of Compressed Image and Video". 
-
 <p align="center">
   <a href="https://arxiv.org/abs/2209.11345"><img src="media/swin2sr.png" alt="swin2sr" width="800" border="0"></a>
 </p>
+
+> Compression plays an important role on the efficient transmission and storage of images and videos through band-limited systems such as streaming services, virtual reality or videogames. However, compression unavoidably leads to artifacts and the loss of the original information, which may severely degrade the visual quality. For these reasons, quality enhancement of compressed images has become a popular research topic. While most state-of-the-art image restoration methods are based on convolutional neural networks, other transformers-based methods such as SwinIR, show impressive performance on these tasks.
+In this paper, we explore the novel Swin Transformer V2, to improve SwinIR for image super-resolution, and in particular, the compressed input scenario. Using this method we can tackle the major issues in training transformer vision models, such as training instability, resolution gaps between pre-training and fine-tuning, and hunger on data. We conduct experiments on three representative tasks: JPEG compression artifacts removal, image super-resolution (classical and lightweight), and compressed image super-resolution. Experimental results demonstrate that our method, Swin2SR, can improve the training convergence and performance of SwinIR, and is a top-5 solution at the "AIM 2022 Challenge on Super-Resolution of Compressed Image and Video". 
 
 ------------------
 
 #### Contents
 
 1. [Training](#training)
-1. [Testing](#testing)
 1. [Results](#results)
 1. [Demos](#demos)
+1. [Testing](#testing)
 1. [Citation and Acknowledgement](#citation-and-acknowledgement)
 1. [Contact](#contact)
 
@@ -56,9 +56,66 @@ In this paper, we explore the novel Swin Transformer V2, to improve SwinIR for i
 The training code is at [KAIR](https://github.com/cszn/KAIR/). We follow the same training setup as [SwinIR](https://github.com/JingyunLiang/SwinIR/) by [Jingyun Liang](https://jingyunliang.github.io/). We are working on KAIR integration 👀
 More details about the training setup in our [paper](https://arxiv.org/abs/2209.11345).
 
-Please check our **[demos](#demos)** 🚀
+Please check our **[demos](#demos) ready to run** 🚀
 
 ------
+
+## Results
+
+We achieved state-of-the-art performance on classical, lightweight and real-world image Super-Resolution (SR), JPEG compression artifact reduction, and compressed input super-resolution. We use mainly the DIV2K Dataset and Flickr2K datasets for training, and for testing:  RealSRSet, 5images/Classic5/Set5, Set14, BSD100, Urban100 and Manga109  
+
+🌎 **[All visual results of SwinIR can be downloaded here](https://github.com/mv-lab/swin2sr/releases)**. We also provide links to download the original datasets.
+More details in our [paper](https://arxiv.org/abs/2209.11345).
+
+<br>
+
+<img src="media/chain-sample.png " alt="swin2sr makima demo" width="530" border="0">
+<img src="media/gojou-sample.png " alt="swin2sr makima demo" width="530" border="0">
+
+
+|Compressed inputs | Swin2SR output|
+|       :---       |     :---:     |
+| <img src="media/frog_0.png" alt="frog_in" width="250" border="0"> | <img src="media/frog_1.png" alt="frog_swin2sr" width="250" border="0"> |
+| <img src="media/0814_0.png" alt="div2k_in" width="250" border="0"> | <img src="media/0814_1.png" alt="div2k_swin2sr" width="250" border="0"> |
+| <img src="media/buildings_0.png" alt="buildings_in" width="250" border="0"> | <img src="media/buildings_1.png" alt="buildings_swin2sr" width="250" border="0"> |
+
+<br>
+
+🌎 **[All the qualitative samples can be downloaded here](https://github.com/mv-lab/swin2sr/releases)**
+
+
+### Basic inference setup
+
+
+1. create a folder `inputs` and put there the input images. The model expects low-quality and low-resolution JPEG compressed images.
+
+2. select `--scale` standard is 4, this means we will increase the resolution of the image x4 times. For example for a 1MP image (1000x1000) we will upscale it to near 4K (4000x4000). We also allow scale 2 (x2 upscaling), for further resolutions please contact us and we will provide the models.
+
+3. run our model using `main_test_swin2sr.py` and `--save_img_only`. The pre-trained models are included in [our repo](https://github.com/mv-lab/swin2sr), you can download them from [here](https://github.com/mv-lab/swin2sr/releases) or check the repo [releases](https://github.com/mv-lab/swin2sr/releases). It is important to select the proper `--task`, by default we do compressed input super-resolution `compressed_s`.
+
+4. we process the images in `inputs/` and the outputs are stored in `results/swin2sr_{TASK}_x{SCALE}` where TASK and SCALE are the selected options. You can just navigate through `results/`
+
+
+```
+python main_test_swin2sr.py --task compressed_sr --scale 4 --training_patch_size 48 --model_path model_zoo/swin2sr/Swin2SR_CompressedSR_X4_48.pth  --folder_lq ./inputs --save_img_only
+```
+
+to **reproduce results**, calculate metrics and further evaluation, please check the following section [Testing](#testing).
+
+------
+
+## Demos
+
+🔥 🚀 ✅ **[Kaggle kernel demo](https://www.kaggle.com/code/jinssaa/swin2sr-dev/) ready to run!** easy to follow includes testing for multiple SR applications.
+
+[Super-Resolution Demo Swin2SR Official](https://www.kaggle.com/code/jesucristo/super-resolution-demo-swin2sr-official/)
+
+<img src="media/kaggle-demo.png " alt="kaggle demo" width="800" border="0">
+
+We are working on more interactive demos 👀 Contact us if you have ideas!
+
+----
+<br>
 
 ## Testing
 
@@ -77,7 +134,12 @@ Classic5 +LIVE1 - [download here](https://github.com/cszn/DnCNN/tree/master/test
 
 We follow the same evaluation setup as [SwinIR](https://github.com/JingyunLiang/SwinIR/) by [Jingyun Liang](https://jingyunliang.github.io/) 
 
+
+🚀 You can check this evaluation process (and the followinf points) in our interactive kernel **[Official Swin2SR Demo Results](https://www.kaggle.com/jinssaa/official-swin2sr-demo-results/)**
+
+
 <br>
+
 
 ### ClassicalSR 
 ```
@@ -107,40 +169,6 @@ python main_test_swin2sr.py --task jpeg_car --jpeg 20 --model_path model_zoo/swi
 python main_test_swin2sr.py --task jpeg_car --jpeg 30 --model_path model_zoo/swin2sr/Swin2SR_Jpeg_dynamic.pth --folder_gt /path/to/classic5
 python main_test_swin2sr.py --task jpeg_car --jpeg 40 --model_path model_zoo/swin2sr/Swin2SR_Jpeg_dynamic.pth --folder_gt /path/to/classic5
 ```
-
-------
-
-## Results
-
-We achieved state-of-the-art performance on classical, lightweight and real-world image Super-Resolution (SR), JPEG compression artifact reduction, and compressed input super-resolution. We use mainly the DIV2K Dataset and Flickr2K datasets for training, and for testing:  RealSRSet, 5images/Classic5/Set5, Set14, BSD100, Urban100 and Manga109  
-
-🌎 **[All visual results of SwinIR can be downloaded here]()**. We also provide links to download the original datasets.
-More details in our [paper](https://arxiv.org/abs/2209.11345).
-
-<br>
-
-
-|Compressed inputs | Swin2SR output|
-|       :---       |     :---:     |
-| <img src="media/frog_0.png" alt="frog_in" width="250" border="0"> | <img src="media/frog_1.png" alt="frog_swin2sr" width="250" border="0"> |
-| <img src="media/comic3_0.png" alt="comic_in" width="250" border="0"> | <img src="media/comic3_1.png" alt="comic_swin2sr" width="250" border="0"> |
-| <img src="media/0814_0.png" alt="div2k_in" width="250" border="0"> | <img src="media/0814_1.png" alt="div2k_swin2sr" width="250" border="0"> |
-| <img src="media/buildings_0.png" alt="buildings_in" width="250" border="0"> | <img src="media/buildings_1.png" alt="buildings_swin2sr" width="250" border="0"> |
-
-<br>
-
-🌎 **[All the qualitative samples can be downloaded here]()**
-
-
-------
-
-## Demos
-
-🔥 🚀 ✅ **[Kaggle kernel demo](https://www.kaggle.com/code/jinssaa/swin2sr-dev/) ready to run!** easy to follow includes testing for multiple SR applications.
-
-<img src="media/kaggle-demo.png " alt="kaggle demo" width="800" border="0">
-
-We are working on more interactive demos 👀
 
 ------
 
