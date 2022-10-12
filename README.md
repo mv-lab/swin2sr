@@ -16,7 +16,7 @@
 
 [Computer Vision Lab, CAIDAS, University of Würzburg](https://www.informatik.uni-wuerzburg.de/computervision/home/)
 
-MegaStudyEdu, South Korea
+[MegaStudyEdu, South Korea](https://megastudy.net/)
 
 **We are looking for collaborators!  Collaborator를 찾고 있습니다!** 🇬🇧 🇪🇸 🇰🇷 🇫🇷 🇷🇴 🇩🇪 🇨🇳
 
