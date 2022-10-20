@@ -37,22 +37,26 @@ This is the official repository and PyTorch implementation of Swin2SR. We provid
 
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2209.11345"><img src="media/swin2sr.png" alt="swin2sr" width="800" border="0"></a>
+  <a href="https://huggingface.co/spaces/jjourney1125/swin2sr"><img src="media/swin2sr-figlr.gif" alt="swin2sr gif" width="800" border="0"></a>
 </p>
 
-> Compression plays an important role on the efficient transmission and storage of images and videos through band-limited systems such as streaming services, virtual reality or videogames. However, compression unavoidably leads to artifacts and the loss of the original information, which may severely degrade the visual quality. For these reasons, quality enhancement of compressed images has become a popular research topic. While most state-of-the-art image restoration methods are based on convolutional neural networks, other transformers-based methods such as SwinIR, show impressive performance on these tasks.
+
+<details>
+<summary><b>Click here to read a quick summary / ABSTRACT </b></summary>
+Compression plays an important role on the efficient transmission and storage of images and videos through band-limited systems such as streaming services, virtual reality or videogames. However, compression unavoidably leads to artifacts and the loss of the original information, which may severely degrade the visual quality. For these reasons, quality enhancement of compressed images has become a popular research topic. While most state-of-the-art image restoration methods are based on convolutional neural networks, other transformers-based methods such as SwinIR, show impressive performance on these tasks.
+
 In this paper, we explore the novel Swin Transformer V2, to improve SwinIR for image super-resolution, and in particular, the compressed input scenario. Using this method we can tackle the major issues in training transformer vision models, such as training instability, resolution gaps between pre-training and fine-tuning, and hunger on data. We conduct experiments on three representative tasks: JPEG compression artifacts removal, image super-resolution (classical and lightweight), and compressed image super-resolution. Experimental results demonstrate that our method, Swin2SR, can improve the training convergence and performance of SwinIR, and is a top-5 solution at the "AIM 2022 Challenge on Super-Resolution of Compressed Image and Video". 
+
+</details>
+
 
 ------------------
 
 #### Contents
 
 1. [Training](#training)
-1. [Results](#results)
-1. [Demos](#demos)
-1. [Testing](#testing)
-1. [Citation and Acknowledgement](#citation-and-acknowledgement)
-1. [Contact](#contact)
+1. [Results](#results) | [Demos](#demos) | [Testing](#testing)
+1. [Citation and Acknowledgement](#citation-and-acknowledgement) | [Contact](#contact)
 
 ---------------------------------------------------
 
@@ -65,12 +69,20 @@ More details about the training setup in our [paper](https://arxiv.org/abs/2209.
 <details>
 <summary><b>Why moving to Swin Transformer V2 ??</b></summary>
 <img src="media/paper-why.png " alt="paper swinv2" width="800" border="0">
+
 Especially in the case of lightweight super-resolution, we noticed how our model convergence was approximately x2 faster using the same experimental setup as SwinIR. We provide the details in the paper Section 3 and 4.2
 </details>
+
+<p align="center">
+  <a href="https://arxiv.org/abs/2209.11345"><img src="media/swin2sr.png" alt="swin2sr" width="800" border="0"></a>
+</p>
+
 
 <br>
 
 Please check our **[demos](#demos) ready to run** 🚀
+The **pre-trained model weights** are [here](https://github.com/mv-lab/swin2sr/releases).
+
 
 ------
 
@@ -105,7 +117,7 @@ More details in our [paper](https://arxiv.org/abs/2209.11345).
 
 2. select `--scale` standard is 4, this means we will increase the resolution of the image x4 times. For example for a 1MP image (1000x1000) we will upscale it to near 4K (4000x4000).
 
-3. run our model using `main_test_swin2sr.py` and `--save_img_only`. The pre-trained models are included in [our repo](https://github.com/mv-lab/swin2sr), you can download them from [here](https://github.com/mv-lab/swin2sr/releases) or check the repo [releases](https://github.com/mv-lab/swin2sr/releases). It is important to select the proper `--task`, by default we do compressed input super-resolution `compressed_s`.
+3. run our model using `main_test_swin2sr.py` and `--save_img_only`. The pre-trained model weights are included in [our repo](https://github.com/mv-lab/swin2sr), you can download them from [here](https://github.com/mv-lab/swin2sr/releases) or check the repo [releases](https://github.com/mv-lab/swin2sr/releases). It is important to select the proper `--task`, by default we do compressed input super-resolution `compressed_s`.
 
 4. we process the images in `inputs/` and the outputs are stored in `results/swin2sr_{TASK}_x{SCALE}` where TASK and SCALE are the selected options. You can just navigate through `results/`
 
