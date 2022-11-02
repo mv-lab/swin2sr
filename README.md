@@ -6,6 +6,7 @@
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=mv-lab/swin2sr)
 [ <a href="https://colab.research.google.com/drive/1paPrt62ydwLv2U2eZqfcFsePI4X4WRR1?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="google colab logo"></a>](https://colab.research.google.com/drive/1paPrt62ydwLv2U2eZqfcFsePI4X4WRR1?usp=sharing)
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/jjourney1125/swin2sr)
+[![Replicate](https://replicate.com/cjwbw/japanese-stable-diffusion/badge)](https://replicate.com/cjwbw/japanese-stable-diffusion)
 [ <a href="https://www.kaggle.com/code/jesucristo/super-resolution-demo-swin2sr-official/"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png?20140912155123" alt="kaggle logo" width=50></a>](https://www.kaggle.com/code/jesucristo/super-resolution-demo-swin2sr-official/)
 
 
