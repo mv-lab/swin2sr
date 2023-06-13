@@ -14,18 +14,26 @@
 [Marcos V. Conde](https://scholar.google.com/citations?user=NtB1kjYAAAAJ&hl=en), [Ui-Jin Choi](https://scholar.google.com/citations?user=MMF5LCoAAAAJ&hl=en), [Maxime Burchi](https://scholar.google.com/citations?user=7S_l2eAAAAAJ&hl=en), [Radu Timofte](https://scholar.google.com/citations?user=u3MwH5kAAAAJ&hl=en)
 
 
-[Computer Vision Lab, CAIDAS, University of Würzburg](https://www.informatik.uni-wuerzburg.de/computervision/home/)
+[Computer Vision Lab, CAIDAS, University of Würzburg](https://www.informatik.uni-wuerzburg.de/computervision/home/) | MegaStudyEdu, South Korea
 
-MegaStudyEdu, South Korea
+> TLDR: Photorealistic super-resolution of compressed images using transformers / neural networks.
 
-**We are looking for collaborators!  Collaborator를 찾고 있습니다!** 🇬🇧 🇪🇸 🇰🇷 🇫🇷 🇷🇴 🇩🇪 🇨🇳
+**At [AISP](https://github.com/mv-lab/AISP) there is more work on image processing, low-level vision and computational photography.**
 
 ------------------
 
 **News 🚀🚀**
 
+- [06/2023] Researchers from the Technion–Israel Institute of Technology **use Swin2SR in a novel work "[Deep Optimal Transport: A Practical Algorithm for Photo-realistic Image Restoration](https://arxiv.org/abs/2306.02342)"**
+- [06/2023] After 7 months, the online **app reached 1.8 million runs on replicate!** [Try it out](https://replicate.com/mv-lab/swin2sr)
+- [01/2023] Swin2SR is integrated into **[Stable Difussion webui by AUTOMATIC1111](https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/2092)**
 - [10/2022] Demos on Kaggle, Collab and Huggingface Spaces 🤗 are ready!
 - [09/2022] Ongoing website and multiple demos creation. Feel free to contact us. Paper will be presented at the [Advances in Image Manipulation (AIM) workshop](https://data.vision.ee.ethz.ch/cvl/aim22/), ECCV 2022, Tel Aviv.
+
+
+<p align="center">
+  <a href="https://replicate.com/mv-lab/swin2sr"><img src="media/replicate.png" alt="swin2sr-replicate" width="500" border="0"></a>
+</p>
 
 ------------------
 
@@ -239,4 +247,4 @@ This project is released under the Apache 2.0 license. The codes are heavily bas
 
 ## Contact
 
-Marcos Conde (marcos.conde-osorio@uni-wuerzburg.de) and Ui-Jin Choi ( choiuijin1125@gmail.com) are the contact persons. Please add in the email subject "swin2sr".
+Marcos Conde (marcos.conde@uni-wuerzburg.de) and Ui-Jin Choi (choiuijin1125@gmail.com) are the contact persons. Please add in the email subject "swin2sr".
