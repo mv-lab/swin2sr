@@ -12,7 +12,7 @@ class Predictor(BasePredictor):
         """Load the model into memory to make running multiple predictions efficient"""
         print("Loading pipeline...")
 
-        self.device = "cuda:0"
+        self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
         args = argparse.Namespace()
         args.scale = 4
@@ -89,3 +89,4 @@ class Predictor(BasePredictor):
         cv2.imwrite(output_path, output)
 
         return Path(output_path)
+
