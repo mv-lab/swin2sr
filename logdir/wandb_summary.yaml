@@ -1,0 +1,15 @@
+Performance_Section: "\n    ### Run ID: yt7ity6j\n    **Configuration:** LR: 0.001,\
+  \ Epochs: 400\n\n    #### Performance Metrics:\n    - **PSNR channel 1**: 16.5653133392334\n\
+  \    - **PSNR channel 2**: 20.172754287719727\n    \n    "
+_runtime: 30.16075038909912
+_step: 12
+_timestamp: 1726135663.8301435
+epoch: 4
+loss: 0.011484120041131973
+model_weights_filename: swin2sr_epoch5_valloss0.0094_.pth
+train_psnr channel 1: 16.694978713989258
+train_psnr channel 2: 20.44828224182129
+trainer/global_step: 29
+val_loss: 0.009418109431862831
+val_psnr channel 1: 16.5653133392334
+val_psnr channel 2: 20.172754287719727

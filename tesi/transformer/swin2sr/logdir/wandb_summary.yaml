@@ -1,0 +1,16 @@
+Performance_Section: "\n    ### Run ID: 76fzdrwo\n    **Configuration:** LR: 0.001,\
+  \ Epochs: 400, Augmentations: True, Noisy_data: true\n\n    #### Performance Metrics:\n\
+  \    - **PSNR channel 1**: 26.52665138244629\n    - **PSNR channel 2**: 26.730789184570312\n\
+  \    "
+_runtime: 45.767903247
+_step: 29
+_timestamp: 1726737603.9901776
+epoch: 9
+loss: 0.0017057452350854874
+model_weights_filename: swin2sr_epoch10_valloss0.0019.pth
+train_psnr channel 1: 23.777780532836914
+train_psnr channel 2: 27.14332389831543
+trainer/global_step: 219
+val_loss: 0.0018762837862595916
+val_psnr channel 1: 26.52665138244629
+val_psnr channel 2: 26.730789184570312

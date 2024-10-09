@@ -1,0 +1,126 @@
+__pycache__/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.ckpt
+*.pth
+# C extensions
+*.so
+logdir/
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+pip-wheel-metadata/
+wheelhouse/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+debug/
+.testmondata
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# dotenv
+.env
+.env.*
+.venv
+
+# virtualenv
+# Python virtual environment directories and files
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+#chkpoints
+tesi/transformer/swin2sr/logdir/**/checkpoints/*.ckpt
+tesi/transformer/swin2sr/logdir/wandb/*
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# End of the list
+

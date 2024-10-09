@@ -706,7 +706,7 @@ class Swin2SR(nn.Module):
                  **kwargs):
         super(Swin2SR, self).__init__()
         num_in_ch = in_chans
-        num_out_ch = in_chans
+        num_out_ch = 2
         num_feat = 64
         self.img_range = img_range
         if in_chans == 3:

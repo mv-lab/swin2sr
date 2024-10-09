@@ -4,7 +4,7 @@ import numpy as np
 import torch
 from cog import BasePredictor, Input, Path
 
-from main_test_swin2sr import define_model, test
+from swin2sr.tests.main_test_swin2sr import define_model, test
 
 
 class Predictor(BasePredictor):
@@ -20,9 +20,7 @@ class Predictor(BasePredictor):
 
         tasks = ["classical_sr", "compressed_sr", "real_sr"]
         paths = [
-            "weights/Swin2SR_ClassicalSR_X4_64.pth",
-            "weights/Swin2SR_CompressedSR_X4_48.pth",
-            "weights/Swin2SR_RealworldSR_X4_64_BSRGAN_PSNR.pth",
+            "transformer/swin2sr/swin2sr_model.pth",
         ]
         sizes = [64, 48, 128]
 
